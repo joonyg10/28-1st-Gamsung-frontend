@@ -1,0 +1,18 @@
+.cart-list {
+  width: 70%;
+  border: 1px solid rgb(17, 17, 17);
+  background-color: aqua;
+
+  > h1 {
+    margin: 25px 0;
+  }
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+
+    > button {
+      background-color: lightblue;
+      border-radius: 15px;
+    }
+  }
+}

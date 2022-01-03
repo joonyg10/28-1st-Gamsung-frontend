@@ -12,7 +12,7 @@ const Cart = () => {
         <Link to="/">HOME</Link>
         <main className="cart">
           <CartList />
-          <div>d</div>
+          <section>주문 컴포넌트</section>
         </main>
       </div>
     </>

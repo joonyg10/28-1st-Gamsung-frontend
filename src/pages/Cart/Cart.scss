@@ -1,7 +1,9 @@
 .cart-wrap {
   padding: 0 120px;
 
-  > ul {
-    list-style: none;
+  .cart {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
   }
 }

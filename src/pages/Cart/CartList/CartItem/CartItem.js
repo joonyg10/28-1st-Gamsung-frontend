@@ -6,12 +6,13 @@ const CartItem = ({ name, price, img }) => {
   const [itemCount, setItemCount] = useState(1);
 
   return (
-    <li className="cart-list-item">
+    <li className="cart-item">
       <label className="cart-item-checkbox">
         <input type="checkbox" />
       </label>
-      <img alt={name} src={img} />
-      <span>{name}</span>
+      <img alt={name} src={img} className="cart-item-img" />
+      <span className="cart-item-name">{name}</span>
+      <span className="cart-item-serial">serial number</span>
       <span className="cart-item-price">{price}원</span>
       <div className="cart-count-button">
         <button type="button" onClick={() => setItemCount(itemCount - 1)}>

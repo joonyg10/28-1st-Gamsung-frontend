@@ -36,12 +36,12 @@
         margin-right: 15px;
       }
     }
-
-    > button {
-      padding: 5px;
-      border: 1px solid rgb(179, 179, 179);
-      border-radius: 25px;
-    }
+  }
+  &-delete {
+    padding: 5px;
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 25px;
+    opacity: 0.4;
   }
 
   &-items {

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import CartItem from "./CartItem/CartItem";
 import "./CartList.scss";
 
 const CartList = ({ items }) => {
+  const [itemCheck, setItemCheck] = useState(false);
+
   return (
     <section className="cart-list">
       <h1>장바구니</h1>
@@ -11,7 +13,13 @@ const CartList = ({ items }) => {
           <input type="checkbox" placeholder="전체 선택" value="all" />
           전체 선택
         </label>
-        <button type="button">선택 삭제</button>
+        <button
+          type="button"
+          className="cart-list-delete"
+          disabled={!itemCheck}
+        >
+          선택 삭제
+        </button>
       </div>
       <div className="cart-list-items">
         <ul>

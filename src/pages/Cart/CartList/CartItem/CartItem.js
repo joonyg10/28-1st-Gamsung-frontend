@@ -21,7 +21,15 @@ const CartItem = ({ name, price, img }) => {
         <button type="button" onClick={() => setItemCount(itemCount - 1)}>
           <AiOutlineMinus />
         </button>
-        <span>{itemCount}</span>
+        <label>
+          <input
+            type="number"
+            min="1"
+            max="100"
+            value={itemCount}
+            onChange={e => setItemCount(e.target.value)}
+          />
+        </label>
         <button type="button" onClick={() => setItemCount(itemCount + 1)}>
           <AiOutlinePlus />
         </button>

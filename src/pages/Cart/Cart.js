@@ -25,7 +25,7 @@ const Cart = () => {
         <Link to="/">HOME</Link>
         <main className="cart">
           <CartList items={CART_ITEMS} />
-          <CartOrder />
+          <CartOrder price={CART_ITEMS.price} />
         </main>
         <div className="cart-customer-service">
           <h3>고객센터</h3>

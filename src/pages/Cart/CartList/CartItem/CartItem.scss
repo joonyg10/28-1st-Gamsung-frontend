@@ -1,0 +1,63 @@
+$border-color: rgb(179, 179, 179);
+
+.cart-list-item {
+  position: relative;
+  display: flex;
+  height: 250px;
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  overflow: hidden;
+
+  .cart-item-checkbox {
+    margin: 10px 20px 0 0;
+  }
+
+  .cart-item-price {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-weight: bold;
+  }
+
+  > img {
+    width: 250px;
+    height: 100%;
+    border-radius: 20px;
+  }
+
+  .cart-count-button {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 8%;
+    height: 30px;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    text-align: center;
+
+    > button {
+      font-size: 20px;
+    }
+
+    :first-child {
+      width: 20%;
+      border-right: 1px solid $border-color;
+    }
+
+    :last-child {
+      width: 20%;
+      border-left: 1px solid $border-color;
+    }
+  }
+
+  .cart-item-delete {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+}

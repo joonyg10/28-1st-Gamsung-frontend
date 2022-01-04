@@ -1,6 +1,10 @@
 .cart-wrap {
   padding: 0 120px;
 
+  > a {
+    color: rgb(179, 179, 179);
+  }
+
   .cart {
     display: flex;
     justify-content: space-between;

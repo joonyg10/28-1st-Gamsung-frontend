@@ -1,18 +1,67 @@
+@use "/src/styles/color" as color;
+
 .cart-list {
   width: 70%;
-  border: 1px solid rgb(17, 17, 17);
-  background-color: aqua;
+
+  input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    border: 1px solid color.$input-color;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+
+    &:checked {
+      background-color: color.$color-primary;
+      border: none;
+    }
+  }
 
   > h1 {
     margin: 25px 0;
   }
-  &-inner {
+
+  &-select {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid rgb(47, 47, 47);
+
+    > label {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+
+      input {
+        margin-right: 15px;
+      }
+    }
 
     > button {
-      background-color: lightblue;
-      border-radius: 15px;
+      padding: 5px;
+      border: 1px solid rgb(179, 179, 179);
+      border-radius: 25px;
+    }
+  }
+
+  &-items {
+    position: relative;
+    border-bottom: 3px solid rgb(47, 47, 47);
+
+    > p {
+      height: 150px;
+      color: rgb(179, 179, 179);
+    }
+
+    > button {
+      position: absolute;
+      bottom: 120px;
+      right: 0;
+      padding: 7px;
+      background-color: color.$button-color;
+      border: 1px solid rgb(47, 47, 47);
+      border-radius: 20px;
+      color: color.$bg-primary;
     }
   }
 }

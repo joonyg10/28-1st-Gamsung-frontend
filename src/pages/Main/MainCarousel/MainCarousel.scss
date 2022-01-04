@@ -1,0 +1,31 @@
+@use "../../../styles/color" as color;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  svg {
+    color: color.$bg-primary;
+    cursor: pointer;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+
+    &:first-child {
+      left: 2%;
+    }
+
+    &:nth-child(2) {
+      right: 2%;
+    }
+  }
+
+  .play-control {
+    position: absolute;
+    right: 14%;
+    transform: translateY(3px);
+  }
+}

@@ -1,0 +1,38 @@
+footer {
+  --border-primary: 1px solid lightgray;
+
+  .footer-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: var(--border-primary);
+    border-bottom: var(--border-primary);
+  }
+
+  .footer-card {
+    padding: 0 2rem;
+    border-right: var(--border-primary);
+
+    h3 {
+      padding: 1em 0;
+      font-size: 1.125rem;
+    }
+
+    p {
+      padding: 0.75em 0;
+      font-size: 0.75rem;
+
+      &:last-child {
+        padding-bottom: 1.5em;
+      }
+    }
+  }
+
+  .footer-desc {
+    padding: 2rem 1rem 5rem;
+    font-size: 0.75rem;
+
+    p {
+      padding: 0.5em 0;
+    }
+  }
+}

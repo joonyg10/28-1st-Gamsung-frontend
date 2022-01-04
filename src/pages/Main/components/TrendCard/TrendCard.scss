@@ -1,0 +1,18 @@
+.trend-card {
+  font-size: 0.75rem;
+
+  img {
+    border-radius: 2em;
+    min-width: 100%;
+    max-height: 100%;
+    height: var(--height, 100%);
+  }
+
+  .main-info {
+    align-items: flex-start;
+
+    &-title {
+      margin-bottom: 1.5em;
+    }
+  }
+}

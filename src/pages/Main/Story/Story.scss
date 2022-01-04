@@ -1,0 +1,63 @@
+.main-story {
+  display: grid;
+  grid-template-columns: 1fr 1.75fr 1fr;
+  place-items: center;
+  padding: 2rem 1rem 4rem;
+
+  h2 {
+    margin: 0 auto 0.75em 0;
+    font-size: 2.25rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .story-images {
+    position: relative;
+
+    img {
+      width: 35rem;
+      height: 25rem;
+      border-radius: 1rem;
+
+      &.hidden {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
+    }
+  }
+
+  .story-lists {
+    .story {
+      padding: 0.5em 0;
+      background: linear-gradient(to right, red, lightgray) no-repeat left / 0%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 350ms ease-in, color 250ms ease-in;
+
+      &::after {
+        content: "더 알아보기";
+        display: block;
+        margin-left: 2.25em;
+        font-size: 0.675rem;
+        font-weight: light;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 200ms ease-in;
+      }
+
+      &:hover {
+        background-size: 100%;
+        color: transparent;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+}

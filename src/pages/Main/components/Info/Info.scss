@@ -1,0 +1,19 @@
+@use "../../../../styles/mixin" as mixin;
+
+.main-info {
+  position: var(--pos, relative);
+  left: 0;
+  right: 0;
+  bottom: var(--bottom, 0);
+  @include mixin.flex;
+  flex-direction: column;
+  padding: 1em;
+
+  &-header {
+    font-size: 1.125em;
+  }
+
+  &-title {
+    font-size: clamp(1em, 1.5vw, 2em);
+  }
+}

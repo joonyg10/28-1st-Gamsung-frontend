@@ -1,5 +1,6 @@
 .cart-wrap {
-  padding: 0 120px;
+  padding: 20px 150px;
+  border-top: 1px solid rgb(219, 219, 219);
 
   > a {
     color: rgb(179, 179, 179);
@@ -9,5 +10,35 @@
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+  }
+
+  .cart-customer-service {
+    position: relative;
+    margin: 5px 0 40px;
+
+    > h3 {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: lighter;
+      margin-right: 10px;
+    }
+
+    > h4 {
+      display: inline-block;
+      font-size: 20px;
+    }
+
+    > p {
+      width: 300px;
+      color: rgb(179, 179, 179);
+      font-size: 14px;
+    }
+
+    > button {
+      position: absolute;
+      top: 0;
+      right: 30%;
+      text-decoration: underline;
+    }
   }
 }

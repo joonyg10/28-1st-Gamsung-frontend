@@ -1,0 +1,25 @@
+@use "/src//styles/color" as color;
+
+.nav-icons-user {
+  position: absolute;
+  width: 70%;
+  left: 80px;
+  border-radius: 10px;
+  background-color: color.$bg-primary;
+  text-align: center;
+  font-size: 14px;
+  animation: slideUser 1s;
+  z-index: 100;
+}
+
+@keyframes slideUser {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

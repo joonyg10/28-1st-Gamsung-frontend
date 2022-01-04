@@ -1,0 +1,13 @@
+.services {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 5rem;
+
+  &-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 2em;
+    margin-top: 3em;
+  }
+}

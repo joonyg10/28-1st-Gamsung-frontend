@@ -1,0 +1,28 @@
+@use "/src/styles/color" as color;
+
+.nav-cart-items {
+  position: absolute;
+  width: 500px;
+  right: 0;
+  top: 80px;
+  padding: 25px 18px;
+  background-color: color.$bg-primary;
+  border: 1px solid rgb(199, 199, 199);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  z-index: 100;
+
+  > a {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 0;
+    margin-top: 30px;
+    background-color: rgb(17, 17, 17);
+    border-radius: 30px;
+    color: color.$bg-primary;
+    font-size: 18px;
+    font-style: normal;
+    text-align: center;
+  }
+}

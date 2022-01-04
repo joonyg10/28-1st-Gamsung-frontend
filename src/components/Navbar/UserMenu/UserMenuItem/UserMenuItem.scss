@@ -1,0 +1,11 @@
+.nav-icon-menu {
+  padding: 7px;
+  border-radius: 5px;
+  transition-duration: 0.5s;
+
+  &:hover {
+    color: rgb(240, 240, 240);
+    background-color: rgb(17, 17, 17);
+    transition-duration: 0.5s;
+  }
+}

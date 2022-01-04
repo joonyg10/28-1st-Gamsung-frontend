@@ -1,0 +1,43 @@
+@use "/src/styles/color" as color;
+
+.nav-menu-item {
+  padding: 10px;
+  margin-bottom: 20px;
+
+  span {
+    position: relative;
+
+    &:hover {
+      font-weight: bold;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: rgb(47, 47, 47);
+      transition: all 0.7s;
+    }
+    &:hover::after {
+      width: 50%;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: rgb(47, 47, 47);
+      transition: all 0.7s;
+    }
+
+    &:hover::before {
+      width: 50%;
+    }
+  }
+}

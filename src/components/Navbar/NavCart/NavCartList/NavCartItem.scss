@@ -1,0 +1,16 @@
+.nav-cart-item {
+  display: flex;
+  align-items: center;
+
+  img {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+    border-radius: 15px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

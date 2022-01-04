@@ -1,0 +1,79 @@
+@use "/src/styles/color" as color;
+
+.nav-menu-devices {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  > i {
+    position: absolute;
+    left: 370px;
+    font-size: 30px;
+  }
+
+  &:hover > span {
+    font-weight: bold;
+  }
+
+  .nav-menu-device {
+    position: absolute;
+    top: 45px;
+    left: 450px;
+    width: 100%;
+    animation: slideMenu 1s;
+  }
+
+  .nav-menu-img {
+    position: absolute;
+    top: 60px;
+    right: 350px;
+    padding-left: 70px;
+    border-left: 1px solid color.$input-color;
+    animation: slideImg 1s;
+
+    > div {
+      width: 400px;
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+
+      > img {
+        width: 400px;
+        height: 400px;
+        border-radius: 20px;
+        transform: scale(1);
+
+        &:hover {
+          transform: scale(1.2);
+          transition-duration: 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideMenu {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideImg {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -10,12 +10,17 @@ const CartList = ({ items }) => {
       <h1>장바구니</h1>
       <div className="cart-list-select">
         <label>
-          <input type="checkbox" placeholder="전체 선택" value="all" />
+          <input
+            type="checkbox"
+            placeholder="전체 선택"
+            value="all"
+            onClick={() => setItemCheck(preCheck => !preCheck)}
+          />
           전체 선택
         </label>
         <button
           type="button"
-          className="cart-list-delete"
+          className={`cart-list-delete ${itemCheck ? "active" : ""}`}
           disabled={!itemCheck}
         >
           선택 삭제

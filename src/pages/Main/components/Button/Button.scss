@@ -1,0 +1,17 @@
+@use "../../../../styles/color" as color;
+
+.main-btn {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.75em 1.5em;
+  background-color: color.$button-color;
+  color: color.$bg-gray;
+  border-radius: 2em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  & + & {
+    margin-left: 1em;
+  }
+}

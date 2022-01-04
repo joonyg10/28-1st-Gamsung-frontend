@@ -35,6 +35,8 @@ const CartList = ({ items }) => {
                 name={item.name}
                 price={item.price}
                 img={item.img}
+                itemCheck={itemCheck}
+                setItemCheck={setItemCheck}
               />
             );
           })}

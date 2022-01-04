@@ -8,6 +8,9 @@ import "./Cart.scss";
 const Cart = () => {
   // const [cartList, setCartList] = useState([]);
 
+  // shop-list 배열에 CartList에서 input이 체크된 상품들을 담아 온다.
+  const [shopList, setShopList] = useState([]);
+
   // useEffect(() => {
   //   fetch("url", () => {
   //     method: "POST",
@@ -24,8 +27,8 @@ const Cart = () => {
       <div className="cart-wrap">
         <Link to="/">HOME</Link>
         <main className="cart">
-          <CartList items={CART_ITEMS} />
-          <CartOrder price={CART_ITEMS.price} />
+          <CartList items={CART_ITEMS} setShopList={setShopList} />
+          <CartOrder price={CART_ITEMS.price} shopList={shopList} />
         </main>
         <div className="cart-customer-service">
           <h3>고객센터</h3>

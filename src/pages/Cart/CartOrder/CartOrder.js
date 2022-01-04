@@ -1,18 +1,12 @@
 import React from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import CartOrderMenu from "./CartOrderMenu/CartOrderMenu";
+import CartOrderAddress from "./CartOrderAddress/CartOrderAddress";
 import "./CartOrder.scss";
 
 const CartOrder = () => {
   return (
     <section className="cart-order">
-      <div className="cart-order-address">
-        <i>
-          <AiOutlineInfoCircle />
-        </i>
-        <p>배송지를 등록해 주세요.</p>
-        <button type="button">배송지 등록</button>
-      </div>
+      <CartOrderAddress />
       <div className="cart-order-total">
         {ORDER_MENU.map(menu => {
           return (
@@ -26,6 +20,7 @@ const CartOrder = () => {
       </div>
       <div className="cart-order-buyprice">
         <span>결제 예정 금액</span>
+        {/* Cart 에서 shopList 상태 값을 받아와서 전달 */}
         <span>{ORDER_MENU[1].number}</span>
       </div>
       <button className="cart-order-button">주문하기</button>

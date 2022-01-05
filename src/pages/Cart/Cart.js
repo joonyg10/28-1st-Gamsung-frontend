@@ -6,7 +6,7 @@ import CartOrder from "./CartOrder/CartOrder";
 import "./Cart.scss";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
   const [shopList, setShopList] = useState([]);
   const [checkList, setCheckList] = useState([]);
   const [orderList, setOrderList] = useState([]);
@@ -37,25 +37,83 @@ const Cart = () => {
       ? setCheckList([...checkList, id])
       : setCheckList(checkList.filter(checkId => checkId !== id));
 
-  const API = "/cart";
+  // const API = "/cart";
 
-  useEffect(() => {
-    fetch(`${API}/`, {
-      method: "POST",
-      headers: {
-        Authorization: localStorage.getItem("access_token"),
-      },
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
-  });
+  // const setItemCount = (cartId, count) =>
+  //   fetch(`${API}/:${cartId}`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: localStorage.getItem("access_token"),
+  //     },
+  //     body: {
+  //       count: count,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
 
-  useEffect(() => {
-    fetch(`${API}/`)
-      .then(res => res.json())
-      .then(data => setCartItems(data))
-      .catch(error => console.error(error));
-  });
+  // const itemIncrease = (cartId, count) => {
+  //   fetch(`${API}/:${cartId}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       Authorization: localStorage.getItem("access_token"),
+  //     },
+  //     body: {
+  //       count: count + 1,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
+
+  // const itemDecrease = (cartId, count) => {
+  //   fetch(`${API}/:${cartId}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       Authorization: localStorage.getItem("access_token"),
+  //     },
+  //     body: {
+  //       count: count - 1,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
+
+  // const selectDelete = checkList => {
+  //   checkList.map(item =>
+  //     fetch(`${API}/:${item}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         Authorization: localStorage.getItem("access_token"),
+  //       },
+  //     })
+  //       .then(res => res.json())
+  //       .then(data => console.log(data))
+  //   );
+  // };
+
+  // const itemDelete = cartId => {
+  //   fetch(`${API}/:${cartId}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: localStorage.getItem("access_token"),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
+
+  // useEffect(() => {
+  //   fetch(`${API}`, {
+  //     headers: {
+  //       Authorization: localStorage.getItem("access_token"),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setCartItems(data));
+  // });
 
   // useEffect(() => {
   //   fetch("url", () => {
@@ -79,6 +137,11 @@ const Cart = () => {
             checkList={checkList}
             onChangeAll={onChangeAll}
             onChangeEach={onChangeEach}
+            // itemDelete={itemDelete}
+            // selectDelete={selectDelete}
+            // itemDecrease={itemDecrease}
+            // itemIncrease={itemIncrease}
+            // setItemCount={setItemCount}
           />
           <CartOrder orderList={orderList} />
         </main>

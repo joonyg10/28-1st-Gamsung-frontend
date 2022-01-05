@@ -26,6 +26,7 @@ const CartItem = ({ id, name, price, img, count, checkList, onChangeEach }) => {
         <button type="button">
           <AiOutlineMinus />
         </button>
+        {/* 숫자 값 전달할 시 post 요청 */}
         <label>
           <input type="number" min="1" max="100" value={count} />
         </label>

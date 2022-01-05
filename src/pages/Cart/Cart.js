@@ -6,6 +6,7 @@ import CartOrder from "./CartOrder/CartOrder";
 import "./Cart.scss";
 
 const Cart = () => {
+  const [cartItems, setCartItems] = useState([]);
   const [shopList, setShopList] = useState([]);
   const [checkList, setCheckList] = useState([]);
   const [orderList, setOrderList] = useState([]);
@@ -35,6 +36,14 @@ const Cart = () => {
     e.target.checked
       ? setCheckList([...checkList, id])
       : setCheckList(checkList.filter(checkId => checkId !== id));
+
+  const API = "/cart";
+  useEffect(() => {
+    fetch(`${API}/`)
+      .then(res => res.json())
+      .then(data => setCartItems(data))
+      .catch(error => console.error(error));
+  });
 
   // useEffect(() => {
   //   fetch("url", () => {

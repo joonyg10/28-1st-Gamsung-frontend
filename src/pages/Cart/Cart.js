@@ -31,13 +31,10 @@ const Cart = () => {
     setCheckList(e.target.checked ? shopList : []);
   };
 
-  const onChangeEach = (e, id) => {
-    if (e.target.checked) {
-      setCheckList([...checkList, id]);
-    } else {
-      setCheckList(checkList.filter(checkId => checkId !== id));
-    }
-  };
+  const onChangeEach = (e, id) =>
+    e.target.checked
+      ? setCheckList([...checkList, id])
+      : setCheckList(checkList.filter(checkId => checkId !== id));
 
   // useEffect(() => {
   //   fetch("url", () => {

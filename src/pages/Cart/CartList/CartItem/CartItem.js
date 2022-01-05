@@ -13,9 +13,8 @@ const CartItem = ({ id, name, price, img, count, checkList, onChangeEach }) => {
         {/* input check 가 true 일 때 가격과 갯수를 부모 컴포넌트에게 넘긴다. */}
         <input
           type="checkbox"
-          onClick={e => onChangeEach(e, id)}
+          onChange={e => onChangeEach(e, id)}
           checked={checkList.includes(id)}
-          readOnly
         />
       </label>
       <img alt={name} src={img} className="cart-item-img" />
@@ -23,16 +22,19 @@ const CartItem = ({ id, name, price, img, count, checkList, onChangeEach }) => {
       <span className="cart-item-serial">serial number</span>
       <span className="cart-item-price">{priceTrans} 원</span>
       <div className="cart-count-button">
+        {/* - 버튼 클릭 시  백엔드로 patch 요청*/}
         <button type="button">
           <AiOutlineMinus />
         </button>
         <label>
           <input type="number" min="1" max="100" value={count} />
         </label>
+        {/* + 버튼 클릭 시 백엔드로 patch 요청 */}
         <button type="button">
           <AiOutlinePlus />
         </button>
       </div>
+      {/* delete 클릭시 백엔드로 해당 cartId 전달 후 삭제 요청 */}
       <i className="cart-item-delete">
         <FiTrash2 />
       </i>

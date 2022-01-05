@@ -19,13 +19,12 @@ const CartList = ({
           <input
             type="checkbox"
             placeholder="전체 선택"
-            value="all"
-            onClick={onChangeAll}
+            onChange={onChangeAll}
             checked={checkList.length === shopList.length}
-            readOnly
           />
           전체 선택
         </label>
+        {/* 선택 삭제 클릭시 checkList의 목록을 백엔드에 삭제 요청 */}
         <button
           type="button"
           className={`cart-list-delete ${isCheck ? "active" : ""}`}

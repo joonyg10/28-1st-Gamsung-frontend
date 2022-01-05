@@ -38,7 +38,7 @@ const CartOrder = ({ orderList }) => {
         {ORDER_MENU.map(menu => {
           return (
             <CartOrderMenu
-              key={menu.id}
+              key={menu.name}
               name={menu.name}
               number={menu.number}
             />

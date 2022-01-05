@@ -38,6 +38,18 @@ const Cart = () => {
       : setCheckList(checkList.filter(checkId => checkId !== id));
 
   const API = "/cart";
+
+  useEffect(() => {
+    fetch(`${API}/`, {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  });
+
   useEffect(() => {
     fetch(`${API}/`)
       .then(res => res.json())

@@ -4,6 +4,8 @@ import CartOrderAddress from "./CartOrderAddress/CartOrderAddress";
 import "./CartOrder.scss";
 
 const CartOrder = ({ orderList }) => {
+  const isOrder = orderList.length !== 0;
+
   const orderCount = orderList.reduce((acc, cur) => {
     return acc + cur.count;
   }, 0);
@@ -48,7 +50,12 @@ const CartOrder = ({ orderList }) => {
         {/* Cart 에서 shopList 상태 값을 받아와서 전달 */}
         <span>{orderPriceTrans}</span>
       </div>
-      <button className="cart-order-button">주문하기</button>
+      <button
+        className={`cart-order-button ${isOrder ? "active" : ""}`}
+        disabled={!isOrder}
+      >
+        주문하기
+      </button>
     </section>
   );
 };

@@ -26,6 +26,12 @@
     border-radius: 40px;
     color: rgb(255, 255, 255);
     text-align: center;
+    opacity: 0.5;
+  }
+
+  > .active {
+    opacity: 1;
+    cursor: pointer;
 
     &:hover {
       background-color: rgb(13, 83, 195);

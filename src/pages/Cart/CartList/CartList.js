@@ -9,6 +9,8 @@ const CartList = ({
   onChangeAll,
   onChangeEach,
 }) => {
+  const isCheck = checkList.length !== 0;
+
   return (
     <section className="cart-list">
       <h1>장바구니</h1>
@@ -24,7 +26,11 @@ const CartList = ({
           />
           전체 선택
         </label>
-        <button type="button" className="cart-list-delete">
+        <button
+          type="button"
+          className={`cart-list-delete ${isCheck ? "active" : ""}`}
+          disabled={!isCheck}
+        >
           선택 삭제
         </button>
       </div>

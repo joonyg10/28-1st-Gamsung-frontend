@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import CartItem from "./CartItem/CartItem";
 import "./CartList.scss";
 
-const CartList = ({ items }) => {
-  const [itemCheck, setItemCheck] = useState(false);
-
+const CartList = ({
+  items,
+  checkList,
+  shopList,
+  onChangeAll,
+  onChangeEach,
+}) => {
   return (
     <section className="cart-list">
       <h1>장바구니</h1>
@@ -14,15 +18,13 @@ const CartList = ({ items }) => {
             type="checkbox"
             placeholder="전체 선택"
             value="all"
-            onClick={() => setItemCheck(preCheck => !preCheck)}
+            onClick={onChangeAll}
+            checked={checkList.length === shopList.length}
+            readOnly
           />
           전체 선택
         </label>
-        <button
-          type="button"
-          className={`cart-list-delete ${itemCheck ? "active" : ""}`}
-          disabled={!itemCheck}
-        >
+        <button type="button" className="cart-list-delete">
           선택 삭제
         </button>
       </div>
@@ -31,12 +33,14 @@ const CartList = ({ items }) => {
           {items.map(item => {
             return (
               <CartItem
-                key={item.name}
+                key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
+                count={item.count}
                 img={item.img}
-                itemCheck={itemCheck}
-                setItemCheck={setItemCheck}
+                checkList={checkList}
+                onChangeEach={onChangeEach}
               />
             );
           })}

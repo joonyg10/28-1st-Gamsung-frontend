@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { FiTrash2 } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import "./CartItem.scss";
 
-const CartItem = ({ name, price, img, itemCheck, setItemCheck }) => {
-  const [itemCount, setItemCount] = useState(1);
-  const [checked, setChecked] = useState(false);
-
-  const priceNum = price * itemCount;
+const CartItem = ({ id, name, price, img, count, checkList, onChangeEach }) => {
+  const priceNum = price * count;
   const priceTrans = priceNum.toLocaleString("ko-KR");
 
   return (
@@ -16,8 +13,9 @@ const CartItem = ({ name, price, img, itemCheck, setItemCheck }) => {
         {/* input check 가 true 일 때 가격과 갯수를 부모 컴포넌트에게 넘긴다. */}
         <input
           type="checkbox"
-          checked={checked}
-          onClick={() => setChecked(preCheck => !preCheck)}
+          onClick={e => onChangeEach(e, id)}
+          checked={checkList.includes(id)}
+          readOnly
         />
       </label>
       <img alt={name} src={img} className="cart-item-img" />
@@ -25,19 +23,13 @@ const CartItem = ({ name, price, img, itemCheck, setItemCheck }) => {
       <span className="cart-item-serial">serial number</span>
       <span className="cart-item-price">{priceTrans} 원</span>
       <div className="cart-count-button">
-        <button type="button" onClick={() => setItemCount(itemCount - 1)}>
+        <button type="button">
           <AiOutlineMinus />
         </button>
         <label>
-          <input
-            type="number"
-            min="1"
-            max="100"
-            value={itemCount}
-            onChange={e => setItemCount(e.target.value)}
-          />
+          <input type="number" min="1" max="100" value={count} />
         </label>
-        <button type="button" onClick={() => setItemCount(itemCount + 1)}>
+        <button type="button">
           <AiOutlinePlus />
         </button>
       </div>

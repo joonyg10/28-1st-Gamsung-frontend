@@ -6,10 +6,38 @@ import CartOrder from "./CartOrder/CartOrder";
 import "./Cart.scss";
 
 const Cart = () => {
-  // const [cartList, setCartList] = useState([]);
-
-  // shop-list 배열에 CartList에서 input이 체크된 상품들을 담아 온다.
   const [shopList, setShopList] = useState([]);
+  const [checkList, setCheckList] = useState([]);
+  const [orderList, setOrderList] = useState([]);
+
+  useEffect(() => {
+    let itemsCheck = [];
+
+    CART_ITEMS.map((item, i) => (itemsCheck[i] = item.id));
+
+    setShopList(itemsCheck);
+  }, []);
+
+  const onChangeOrder = () => {
+    const nowOrder = CART_ITEMS.filter(item => checkList.includes(item.id));
+    return setOrderList(nowOrder);
+  };
+
+  useEffect(() => {
+    onChangeOrder();
+  }, [checkList]);
+
+  const onChangeAll = e => {
+    setCheckList(e.target.checked ? shopList : []);
+  };
+
+  const onChangeEach = (e, id) => {
+    if (e.target.checked) {
+      setCheckList([...checkList, id]);
+    } else {
+      setCheckList(checkList.filter(checkId => checkId !== id));
+    }
+  };
 
   // useEffect(() => {
   //   fetch("url", () => {
@@ -27,8 +55,14 @@ const Cart = () => {
       <div className="cart-wrap">
         <Link to="/">HOME</Link>
         <main className="cart">
-          <CartList items={CART_ITEMS} setShopList={setShopList} />
-          <CartOrder price={CART_ITEMS.price} shopList={shopList} />
+          <CartList
+            items={CART_ITEMS}
+            shopList={shopList}
+            checkList={checkList}
+            onChangeAll={onChangeAll}
+            onChangeEach={onChangeEach}
+          />
+          <CartOrder orderList={orderList} />
         </main>
         <div className="cart-customer-service">
           <h3>고객센터</h3>
@@ -46,13 +80,17 @@ const Cart = () => {
 
 const CART_ITEMS = [
   {
+    id: 1,
     name: "갤럭시 Z 플립",
     img: "https://cdn.pixabay.com/photo/2019/12/30/03/06/samsung-4728704_1280.jpg",
+    count: 1,
     price: 1200000,
   },
   {
+    id: 2,
     name: "갤럭시 Z 폴더",
     img: "https://cdn.pixabay.com/photo/2019/04/25/04/35/smart-home-4153906_1280.jpg",
+    count: 2,
     price: 1900000,
   },
 ];

@@ -1,0 +1,41 @@
+@use "../../styles/color" as color;
+@use "../../styles/mixin" as mixin;
+
+.sign {
+  height: 100vh;
+  padding-top: 80px;
+  background-color: rgb(17, 17, 17);
+
+  > div {
+    @include mixin.flex;
+
+    width: 640px;
+    margin: 0 auto;
+    padding: 60px 72px 48px;
+    border-radius: 25px;
+    background-color: rgb(23, 23, 23);
+
+    section {
+      margin: 0 auto;
+      color: color.$input-color;
+
+      h1 {
+        margin-bottom: 20px;
+        color: color.$bg-primary;
+        font-size: 28px;
+        font-weight: 300;
+      }
+
+      > span {
+        font-size: 14px;
+      }
+
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        text-decoration: underline solid color.$input-color;
+      }
+    }
+  }
+}

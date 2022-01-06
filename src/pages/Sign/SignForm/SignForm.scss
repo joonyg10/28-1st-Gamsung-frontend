@@ -1,0 +1,63 @@
+@use "/src/styles/color" as color;
+
+.sign-form {
+  margin-top: 40px;
+
+  .sign-signup-button {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+
+    button {
+      width: 140px;
+      padding: 8px 20px;
+      margin: 10px;
+      background-color: rgb(93, 93, 93);
+      border-radius: 25px;
+      color: color.$bg-primary;
+      text-align: center;
+    }
+
+    :last-child {
+      background-color: color.$color-primary;
+    }
+
+    .active:hover {
+      background-color: rgb(6, 105, 180);
+      transition-duration: 0.3s;
+    }
+    .inactive {
+      opacity: 0.5;
+    }
+  }
+
+  .sign-signup-birth {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      width: 25%;
+    }
+  }
+
+  .sign-signin-button {
+    button {
+      width: 280px;
+      padding: 10px 20px;
+      margin: 50px auto;
+      background-color: rgb(93, 93, 93);
+      border: 1px solid rgb(93, 93, 93);
+      border-radius: 25px;
+      color: color.$bg-primary;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .inactive {
+      background-color: rgb(140, 140, 140);
+      cursor: default;
+      opacity: 0.3;
+    }
+  }
+}

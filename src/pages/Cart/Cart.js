@@ -143,7 +143,13 @@ const Cart = () => {
       headers: {
         Authorization: accessToken,
       },
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(res => {
+        setCartItems(prev =>
+          prev.filter(item => item.product_id === productId)
+        );
+      });
   };
 
   return (

@@ -39,9 +39,9 @@ const ProductInfo = ({ product }) => {
   };
 
   const addToCart = async () => {
-    await fetch("", {
+    await fetch("http://10.58.5.80:8000/carts", {
       headers: {
-        Authorization: localStorage.getItem("access-token"),
+        Authorization: localStorage.getItem("access_token"),
       },
       method: "POST",
       body: JSON.stringify({ product_id: product.id, quantity }),

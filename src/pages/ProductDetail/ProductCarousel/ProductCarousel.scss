@@ -1,0 +1,49 @@
+@use "../../../styles/mixin" as mixin;
+@use "../../../styles/color" as color;
+
+.detail-carousel {
+  position: relative;
+  width: 43rem;
+  overflow: hidden;
+
+  .detail-navigator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include mixin.flex($justify: center);
+    flex-direction: column;
+    background-color: color.$bg-gray;
+    z-index: 10;
+
+    .navigator-arrow {
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 5rem;
+      margin: 1em 0;
+      border-radius: 1.5em;
+      cursor: pointer;
+
+      &.current {
+        border: 2px solid color.$color-primary;
+      }
+    }
+  }
+
+  .detail-slider {
+    max-width: 38rem;
+    @include mixin.flex;
+    gap: 1em;
+    transform: translateX(calc(var(--currIdx) * calc(-100% - 1em) + 5.5rem));
+    transition: all 0.5s ease-in;
+
+    img {
+      display: block;
+      min-width: 100%;
+      object-fit: cover;
+    }
+  }
+}

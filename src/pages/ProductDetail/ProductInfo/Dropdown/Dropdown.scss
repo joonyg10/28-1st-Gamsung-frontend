@@ -1,0 +1,73 @@
+@use "../../../../styles/mixin" as mixin;
+@use "../../../../styles/color" as color;
+
+.detail-dropdown {
+  position: relative;
+  padding: 1rem;
+
+  .dropdown-header {
+    @include mixin.flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    h3 {
+      display: inline-block;
+      font-weight: 400;
+    }
+
+    span {
+      font-size: 0.975rem;
+      font-weight: bold;
+    }
+
+    .dropdown-arrow {
+      place-self: end;
+      font-size: 1.25em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+
+      &.open {
+        transform: rotate(0.5turn);
+      }
+    }
+  }
+
+  .dropdown-detail-wrapper {
+    animation: var(--animation) forwards;
+  }
+
+  .dropdown-desc {
+    margin: 1em 0;
+    padding: 2em;
+    background-color: lightgray;
+    border-radius: 0.5em;
+
+    .primary {
+      font-weight: bold;
+      color: color.$color-primary;
+    }
+  }
+
+  @keyframes dropdownMount {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--height, 2rem);
+      opacity: 1;
+    }
+  }
+
+  @keyframes dropdownUnmount {
+    from {
+      height: var(--height, 2rem);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}

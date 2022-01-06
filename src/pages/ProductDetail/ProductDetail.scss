@@ -1,0 +1,11 @@
+@use "../../styles/color" as color;
+
+.product-detail {
+  display: grid;
+  grid-template-columns: auto 28rem;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: color.$bg-gray;
+  font-size: 0.75rem;
+}

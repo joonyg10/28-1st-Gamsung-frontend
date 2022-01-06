@@ -1,0 +1,228 @@
+@use "../../../styles/mixin" as mixin;
+@use "../../../styles/color" as color;
+
+.product-info {
+  --bg-color: #000;
+  --color: #fff;
+
+  width: 27rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 4px 0 lightgray;
+  background-color: color.$bg-primary;
+  font-size: 0.75rem;
+
+  .info-header {
+    @include mixin.flex;
+    margin-bottom: 0.5rem;
+
+    .sale {
+      margin-right: auto;
+      color: color.$color-primary;
+      font-weight: bold;
+    }
+  }
+
+  .serial-number {
+    margin: 0.5em 0;
+    color: color.$input-color;
+  }
+
+  .product-reviews {
+    @include mixin.flex($justify: space-between);
+    margin-bottom: 2.5em;
+
+    .reviews-star {
+      @include mixin.flex;
+      font-weight: bold;
+
+      svg {
+        fill: var(--fill, lightgray);
+      }
+
+      span {
+        margin-left: 0.5em;
+      }
+    }
+
+    .write-reviews {
+      font-size: 0.875rem;
+      text-decoration: underline;
+    }
+  }
+
+  .price {
+    &-info {
+      @include mixin.flex($justify: space-between);
+      margin: 0.5em 0;
+
+      &.total-amount {
+        padding: 1rem 1rem 0;
+      }
+    }
+
+    &-title {
+      font-size: 0.975rem;
+    }
+
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .detail-coupon {
+    @include mixin.flex($justify: space-between);
+    margin: 1.5em 0 2.5em;
+
+    &-title {
+      color: color.$color-primary;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+
+    p {
+      @include mixin.flex;
+      gap: 0.5em;
+      padding: 0.5em 1em;
+      border-radius: 1.25em;
+      box-shadow: 0 0 2px 0 color.$color-primary;
+      cursor: pointer;
+
+      svg {
+        background-color: color.$color-primary;
+        color: color.$bg-primary;
+        border-radius: 0.25em;
+      }
+    }
+  }
+
+  .detail-dropdown {
+    .circle {
+      display: inline-block;
+      margin-right: 3em;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid var(--bg-color);
+      border-radius: 50%;
+      background-color: var(--bg-color);
+      cursor: pointer;
+
+      &-wrapper {
+        @include mixin.flex($justify: center);
+        padding-top: 1em;
+      }
+    }
+
+    .storage-wrapper {
+      @include mixin.flex($justify: flex-end);
+    }
+
+    .storage-selector {
+      margin: 1em 0.5em 0;
+      padding: 0.5em 2.25em;
+
+      &:not(.current) {
+        background-color: rgb(219, 219, 219);
+        color: #000;
+      }
+    }
+  }
+
+  .detail-selector {
+    padding: 1em;
+    background: color.$bg-gray;
+    border-radius: 1.25em;
+
+    .counter {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 1rem;
+
+      h3 {
+        display: inline-block;
+        font-weight: 400;
+      }
+
+      .qunatity-controller {
+        padding: 0 0.5em;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      input {
+        width: 2rem;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid color.$input-color;
+        outline: none;
+        text-align: center;
+      }
+    }
+  }
+
+  .divider {
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid rgb(219, 219, 219);
+  }
+
+  .utils {
+    @include mixin.flex($justify: space-around);
+    margin-top: 1.5rem;
+  }
+
+  .cart-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    background-color: rgba(var(--bg-color), $alpha: 0.4);
+
+    .modal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 3rem;
+      background-color: #fff;
+      border-radius: 2rem;
+      text-align: center;
+      transform: translate(-50%, -50%);
+
+      &-title {
+        font-size: 0.875rem;
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+
+    button {
+      margin: 1rem;
+      padding: 0.75em 2em;
+    }
+
+    .modal-close {
+      position: absolute;
+      left: 50%;
+      bottom: -20%;
+      margin: 0 auto;
+      fill: #fff;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+  }
+
+  button {
+    padding: 0.75em 3em;
+    background-color: var(--bg-color);
+    border-radius: 2em;
+    color: var(--color);
+    font-size: 0.875rem;
+    cursor: pointer;
+
+    &.primary {
+      --bg-color: #fff;
+      --color: #000;
+      border: 1px solid var(--color);
+    }
+  }
+}

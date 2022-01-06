@@ -4,7 +4,6 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import "./CartItem.scss";
 
 const CartItem = ({
-  id,
   product_id: productId,
   product_name: name,
   price,
@@ -53,7 +52,7 @@ const CartItem = ({
           <AiOutlinePlus />
         </button>
       </div>
-      <i className="cart-item-delete" onClick={() => itemDelete(id)}>
+      <i className="cart-item-delete" onClick={() => itemDelete(productId)}>
         <FiTrash2 />
       </i>
     </li>

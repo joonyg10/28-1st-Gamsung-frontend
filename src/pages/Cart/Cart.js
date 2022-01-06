@@ -6,7 +6,7 @@ import CartOrder from "./CartOrder/CartOrder";
 import "./Cart.scss";
 
 const Cart = () => {
-  // const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [shopList, setShopList] = useState([]);
   const [checkList, setCheckList] = useState([]);
   const [orderList, setOrderList] = useState([]);
@@ -37,8 +37,8 @@ const Cart = () => {
       ? setCheckList([...checkList, id])
       : setCheckList(checkList.filter(checkId => checkId !== id));
 
-  // const API = "/cart";
-  // const accessToken = localStorage.getItem("access_token");
+  const API = "http://10.58.3.232/carts";
+  const accessToken = localStorage.getItem("access_token");
 
   // const setItemCount = (cartId, count) =>
   //   fetch(`${API}/:${cartId}:${productId}`, {
@@ -106,15 +106,17 @@ const Cart = () => {
   //     .then(data => console.log(data));
   // };
 
-  // useEffect(() => {
-  //   fetch(`${API}`, {
-  //     headers: {
-  //       Authorization: accessToken,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setCartItems(data));
-  // });
+  useEffect(() => {
+    fetch(API, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    })
+      .then(res => res.json())
+      .then(data => setCartItems(data));
+  }, [cartItems]);
+
+  console.log(cartItems);
 
   // useEffect(() => {
   //   fetch("url", () => {
@@ -133,7 +135,7 @@ const Cart = () => {
         <Link to="/">HOME</Link>
         <main className="cart">
           <CartList
-            items={CART_ITEMS}
+            items={cartItems}
             shopList={shopList}
             checkList={checkList}
             onChangeAll={onChangeAll}

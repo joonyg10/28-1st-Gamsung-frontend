@@ -100,39 +100,36 @@ const Cart = () => {
       },
     })
       .then(res => res.json())
-      .then(data => setCartItems(data.cart_list));
+      .then(data => setCartItems(data.cart_list ?? []));
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <div className="cart-wrap">
-        <Link to="/">HOME</Link>
-        <main className="cart">
-          <CartList
-            items={cartItems}
-            shopList={shopList}
-            checkList={checkList}
-            onChangeAll={onChangeAll}
-            onChangeEach={onChangeEach}
-            itemDecrease={itemDecrease}
-            itemIncrease={itemIncrease}
-            setItemCount={setItemCount}
-            itemDelete={itemDelete}
-          />
-          <CartOrder orderList={orderList} />
-        </main>
-        <div className="cart-customer-service">
-          <h3>고객센터</h3>
-          <h4>1588-6084</h4>
-          <p>
-            평일 09시 ~ 18시 / 토요일 09시 ~ 13시 (일요일, 공휴일은 운영하지
-            않습니다.)
-          </p>
-          <button>주문취소 안내</button>
-        </div>
+    <div className="cart-wrap">
+      <Link to="/">HOME</Link>
+      <main className="cart">
+        <CartList
+          items={cartItems}
+          shopList={shopList}
+          checkList={checkList}
+          onChangeAll={onChangeAll}
+          onChangeEach={onChangeEach}
+          itemDecrease={itemDecrease}
+          itemIncrease={itemIncrease}
+          setItemCount={setItemCount}
+          itemDelete={itemDelete}
+        />
+        <CartOrder orderList={orderList} />
+      </main>
+      <div className="cart-customer-service">
+        <h3>고객센터</h3>
+        <h4>1588-6084</h4>
+        <p>
+          평일 09시 ~ 18시 / 토요일 09시 ~ 13시 (일요일, 공휴일은 운영하지
+          않습니다.)
+        </p>
+        <button>주문취소 안내</button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,74 @@
+.productFilter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 1vw;
+  margin-right: 6vw;
+  line-height: 30px;
+
+  .product-type-filter {
+    font-weight: bold;
+    letter-spacing: -0.02em;
+  }
+
+  .product-type-filter {
+    padding-left: 8px;
+  }
+
+  .expand-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30px;
+    padding: 5px 0;
+    cursor: pointer;
+
+    .common-button {
+      height: 4px;
+      width: 30px;
+      border: 0;
+      border-radius: 2px;
+      background-color: #b3b0b0;
+      cursor: pointer;
+    }
+  }
+
+  .underLine {
+    flex-basis: 100%;
+    height: 1px;
+    margin-top: 5px;
+    background-color: lightgray;
+    opacity: 0.5;
+  }
+
+  .list-container {
+    flex-basis: 100%;
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+
+    .filtering-list-shrink,
+    .filtering-list-expand {
+      left: 10px;
+      margin-top: 8px;
+      list-style: none;
+      line-height: 34px;
+    }
+
+    .filtering-list-shrink {
+      position: absolute;
+      top: -90px;
+      transition-property: top;
+      transition-timing-function: linear;
+      transition-duration: 0.5s;
+    }
+
+    .filtering-list-expand {
+      position: absolute;
+      top: 0;
+      transition-property: top;
+      transition-timing-function: linear;
+      transition-duration: 0.5s;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@use "src/styles/_mixin.scss";
+
+.productCard {
+  width: 100%;
+  max-width: 320px;
+  outline: 0.5px solid transparent;
+  border-radius: 25px;
+  padding: 28px 20px 18px;
+  background-color: #f7f7f7;
+  text-align: center;
+  transition-property: box-shadow;
+  transition-duration: 0.6s;
+  transition-timing-function: linear;
+
+  .product-image-container {
+    width: 100%;
+    height: 45%;
+    overflow: hidden;
+    border-radius: 25px;
+
+    .product-image {
+      margin: 0 auto;
+      height: 307px;
+      object-fit: contain;
+      border-radius: 25px;
+    }
+  }
+
+  .product-color-container {
+    @include mixin.flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 2rem;
+
+    .product-color-selector {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: brown;
+    }
+
+    .product-color-selector:nth-child(1) {
+      background-color: turquoise;
+    }
+
+    .product-color-selector:nth-child(2) {
+      background-color: pink;
+    }
+
+    .product-color-selector:nth-child(3) {
+      background-color: blueviolet;
+    }
+  }
+
+  .product-storage {
+    @include mixin.flex;
+    justify-content: center;
+    margin-top: 25px;
+    .product-storage-selector {
+      padding: 5px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      background: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  .product-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 125px;
+    margin-top: 25px;
+
+    .product-title-text {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      word-break: keep-all;
+    }
+
+    .product-model {
+      font-size: 12px;
+      color: #707070;
+    }
+  }
+  .product-price {
+    padding-top: 30px;
+    .price-number {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .price-currency {
+      font-size: 16px;
+      padding-left: 5px;
+    }
+  }
+  .product-purchase {
+    margin: 20px 0;
+    letter-spacing: -0.02em;
+
+    .purchase-button {
+      width: 100%;
+      height: 40px;
+      font-size: 14px;
+      border-radius: 20px;
+      color: #fff;
+      background-color: #212425;
+      cursor: pointer;
+    }
+  }
+}
+.productCard:hover {
+  transition-property: box-shadow;
+  transition-duration: 0.6s;
+  transition-timing-function: linear;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

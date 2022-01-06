@@ -67,28 +67,33 @@ const NAV_MENU_DATA = [
     category: [
       {
         type: "민욱",
-        device: ["hi"],
-        image: "asd",
+        device: ["프론트 엔드!!!"],
+        image:
+          "https://ca.slack-edge.com/TH0U6FBTN-U02LYMNBT43-3e1a1cb53b01-512",
       },
       {
         type: "준영",
-        device: ["hi"],
-        image: "asd",
+        device: ["프론트 엔드!!!"],
+        image:
+          "https://ca.slack-edge.com/TH0U6FBTN-U02J2ALDZDZ-55de411b92a1-512",
       },
       {
         type: "종호",
-        device: ["hi"],
-        image: "asd",
+        device: ["프론트 엔드!!!"],
+        image:
+          "https://ca.slack-edge.com/TH0U6FBTN-U02JS0G3Q6L-5f665bd2b774-512",
       },
       {
         type: "민성",
-        device: ["hi"],
-        image: "asd",
+        device: ["백 엔드!!!"],
+        image:
+          "https://ca.slack-edge.com/TH0U6FBTN-U02JEU8A3ND-0528334f9d83-512",
       },
       {
         type: "병연",
-        device: ["hi"],
-        image: "asd",
+        device: ["백 엔드!!!"],
+        image:
+          "https://ca.slack-edge.com/TH0U6FBTN-U02J2AA4CBC-84d00e487f43-512",
       },
     ],
   },

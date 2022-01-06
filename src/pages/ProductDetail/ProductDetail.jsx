@@ -6,7 +6,6 @@ import "./ProductDetail.scss";
 
 const ProductDetail = () => {
   const { serial_number } = useParams();
-
   const [product, setProduct] = useState();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const ProductDetail = () => {
         },
       })
         .then(res => res.json())
-        .then(data => setProduct(data.results[0]));
+        .then(data => setProduct(data?.results[0]));
     };
     getDetail();
   }, []);

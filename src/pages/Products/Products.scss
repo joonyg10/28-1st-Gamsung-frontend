@@ -1,0 +1,67 @@
+@use "src/styles/_mixin.scss";
+@use "src/styles/_color.scss";
+
+.products {
+  .top-image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 61vw;
+    max-height: 360px;
+    background-image: url("../../../public/images/products/gamsung_images/top-image.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    line-height: 60px;
+
+    .products-list-title {
+      margin-left: 19%;
+      font-size: 45px;
+      font-weight: bold;
+      letter-spacing: -0.5;
+    }
+  }
+
+  .buffer-layer {
+    width: 100%;
+    height: 43px;
+    background: #f7f7f7;
+  }
+
+  .search-status-layer {
+    width: 100%;
+    height: 47px;
+    line-height: 47px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 50px;
+
+    span:nth-child(2) {
+      padding-left: 8px;
+      color: color.$color-primary;
+    }
+  }
+
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    // grid-auto-rows: auto;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+
+  .aside-filter-container {
+    grid-column: 1/2;
+  }
+
+  .product-list-container {
+    grid-column: 2/6;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    grid-auto-rows: auto;
+    gap: 2vw;
+    padding: 1vw;
+  }
+}

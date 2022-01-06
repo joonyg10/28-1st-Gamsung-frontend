@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "detail_images": ["images/Products/gamsung_images/galaxy-s21-image1.jpg"],
+      "main_image": "djflsidfjlsdif",
+      "name": "갤럭시 Z 폴드 4G 자급제",
+      "serial_number": "galaxy S21",
+      "price": "1,921,312",
+      "storage": "256",
+      "subcategory": "갤럭시 Z"
+    },
+    {
+      "detail_images": ["images/Products/gamsung_images/galaxy-s20-image1.jpg"],
+      "main_image": "djflsidfjlsdif",
+      "name": "갤럭시 Z 폴드 3 봉건제",
+      "serial_number": "galaxy S20",
+      "price": "1,921,323",
+      "storage": "256",
+      "subcategory": "갤럭시 S"
+    },
+    {
+      "detail_images": ["images/Products/gamsung_images/galaxy-s10-image1.jpg"],
+      "main_image": "djflsidfjlsdif",
+      "name": "갤럭시 Z 폴드 3 연방제",
+      "serial_number": "galaxy S10",
+      "price": "1,921,323",
+      "storage": "256",
+      "subcategory": "갤럭시 Z"
+    },
+    {
+      "detail_images": ["images/Products/gamsung_images/galaxy-s9-image1.jpg"],
+      "main_image": "djflsidfjlsdif",
+      "name": "갤럭시 Z 폴드 3 나도 모르제",
+      "serial_number": "galaxy S9",
+      "price": "1,921,323",
+      "storage": "256",
+      "subcategory": "갤럭시 S"
+    }
+  ]
+}

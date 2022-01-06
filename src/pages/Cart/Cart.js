@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import CartList from "./CartList/CartList";
 import CartOrder from "./CartOrder/CartOrder";
@@ -38,12 +38,13 @@ const Cart = () => {
       : setCheckList(checkList.filter(checkId => checkId !== id));
 
   // const API = "/cart";
+  // const accessToken = localStorage.getItem("access_token");
 
   // const setItemCount = (cartId, count) =>
-  //   fetch(`${API}/:${cartId}`, {
+  //   fetch(`${API}/:${cartId}:${productId}`, {
   //     method: "POST",
   //     headers: {
-  //       Authorization: localStorage.getItem("access_token"),
+  //       Authorization: accessToken,
   //     },
   //     body: {
   //       count: count,
@@ -54,10 +55,10 @@ const Cart = () => {
   // };
 
   // const itemIncrease = (cartId, count) => {
-  //   fetch(`${API}/:${cartId}`, {
+  //   fetch(`${API}/:${cartId}:${productId}`, {
   //     method: "PATCH",
   //     headers: {
-  //       Authorization: localStorage.getItem("access_token"),
+  //       Authorization: accessToken,
   //     },
   //     body: {
   //       count: count + 1,
@@ -68,10 +69,10 @@ const Cart = () => {
   // };
 
   // const itemDecrease = (cartId, count) => {
-  //   fetch(`${API}/:${cartId}`, {
+  //   fetch(`${API}/:${cartId}:${productId}`, {
   //     method: "PATCH",
   //     headers: {
-  //       Authorization: localStorage.getItem("access_token"),
+  //       Authorization: accessToken,
   //     },
   //     body: {
   //       count: count - 1,
@@ -83,10 +84,10 @@ const Cart = () => {
 
   // const selectDelete = checkList => {
   //   checkList.map(item =>
-  //     fetch(`${API}/:${item}`, {
+  //     fetch(`${API}/:${item}:${productId}`, {
   //       method: "DELETE",
   //       headers: {
-  //         Authorization: localStorage.getItem("access_token"),
+  //         Authorization: accessToken,
   //       },
   //     })
   //       .then(res => res.json())
@@ -95,10 +96,10 @@ const Cart = () => {
   // };
 
   // const itemDelete = cartId => {
-  //   fetch(`${API}/:${cartId}`, {
+  //   fetch(`${API}/:${cartId}/:${productId}`, {
   //     method: "DELETE",
   //     headers: {
-  //       Authorization: localStorage.getItem("access_token"),
+  //       Authorization: accessToken,
   //     },
   //   })
   //     .then(res => res.json())
@@ -108,7 +109,7 @@ const Cart = () => {
   // useEffect(() => {
   //   fetch(`${API}`, {
   //     headers: {
-  //       Authorization: localStorage.getItem("access_token"),
+  //       Authorization: accessToken,
   //     },
   //   })
   //     .then(res => res.json())

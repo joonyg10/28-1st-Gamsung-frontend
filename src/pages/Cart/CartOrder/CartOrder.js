@@ -7,11 +7,11 @@ const CartOrder = ({ orderList }) => {
   const isOrder = orderList.length !== 0;
 
   const orderCount = orderList.reduce((acc, cur) => {
-    return acc + cur.count;
+    return acc + cur.quantity;
   }, 0);
 
   const orderPrice = orderList.reduce((acc, cur) => {
-    return acc + cur.price * cur.count;
+    return acc + cur.price * cur.quantity;
   }, 0);
 
   const orderPriceTrans = orderPrice.toLocaleString("ko-KR");
@@ -47,7 +47,6 @@ const CartOrder = ({ orderList }) => {
       </div>
       <div className="cart-order-buyprice">
         <span>결제 예정 금액</span>
-        {/* Cart 에서 shopList 상태 값을 받아와서 전달 */}
         <span>{orderPriceTrans}</span>
       </div>
       <button

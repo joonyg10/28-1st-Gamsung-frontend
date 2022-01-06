@@ -1,87 +1,143 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
 import CartList from "./CartList/CartList";
 import CartOrder from "./CartOrder/CartOrder";
 import "./Cart.scss";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  const [shopList, setShopList] = useState([]);
+  // const [shopList, setShopList] = useState([]);
   const [checkList, setCheckList] = useState([]);
   const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    let itemsCheck = [];
-
-    cartItems.map((item, i) => (itemsCheck[i] = item.product_id));
-
-    setShopList(itemsCheck);
-  }, [cartItems]);
-
-  console.log("cartItems: ", cartItems);
-  console.log("shop: ", shopList);
-  console.log("check: ", checkList);
-  const onChangeOrder = () => {
-    const nowOrder = cartItems.filter(item =>
-      checkList.includes(item.product_id)
-    );
-    return setOrderList(nowOrder);
-  };
-
-  useEffect(() => {
-    onChangeOrder();
-  }, [checkList]);
-
-  const onChangeAll = e => {
-    setCheckList(e.target.checked ? shopList : []);
-  };
-
-  const onChangeEach = (e, id) =>
-    e.target.checked
-      ? setCheckList([...checkList, id])
-      : setCheckList(checkList.filter(checkId => checkId !== id));
+    fetch(API, {
+      headers: {
+        Authorization: accessToken,
+      },
+    })
+      .then(res => res.json())
+      .then(data =>
+        setCartItems(
+          data.cart_list.map(item => ({ ...item, isSelected: true })) ?? []
+        )
+      );
+  }, []);
 
   const API = "http://10.58.3.232:8000/carts";
   const accessToken = localStorage.getItem("access_token");
 
-  const setItemCount = (productId, count) => {
-    fetch(API, {
-      method: "POST",
-      headers: {
-        Authorization: accessToken,
-      },
-      body: JSON.stringify({
-        product_id: productId,
-        quantity: count,
-      }),
-    }).then(res => res.json());
+  const handleCount = ({ action, count, productId }) => {
+    const actionType = {
+      modify: "modify",
+      increase: "increase",
+      decrease: "decrease",
+    };
+
+    switch (actionType[action]) {
+      case actionType.modify:
+        modifyCount(productId, count);
+        break;
+      case actionType.increase:
+        increaseCount(productId);
+        break;
+      case actionType.decrease:
+        decreaseCount(productId);
+        break;
+      default:
+        return;
+    }
+
+    function modifyCount(productId, count) {
+      fetch(API, {
+        method: "POST",
+        headers: {
+          Authorization: accessToken,
+        },
+        body: JSON.stringify({
+          product_id: productId,
+          quantity: count,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          // setCartItems((prev, count) => {
+          //   return prev.map(item => {
+          //     if (item.product_id === productId) {
+          //       return { ...item, quantity: count };
+          //     }
+          //     return item;
+          //   });
+          // });
+        });
+    }
+
+    function increaseCount(productId) {
+      fetch(API, {
+        method: "PATCH",
+        headers: {
+          Authorization: accessToken,
+        },
+        body: JSON.stringify({
+          product_id: productId,
+          quantity: 1,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          setCartItems(prev =>
+            prev.map(item => {
+              if (item.product_id === productId) {
+                return { ...item, quantity: item.quantity + 1 };
+              }
+              return item;
+            })
+          );
+        });
+    }
+
+    function decreaseCount(productId) {
+      fetch(API, {
+        method: "PATCH",
+        headers: {
+          Authorization: accessToken,
+        },
+        body: JSON.stringify({
+          product_id: productId,
+          quantity: -1,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          setCartItems(prev =>
+            prev.map(item => {
+              if (item.product_id === productId) {
+                return { ...item, quantity: item.quantity - 1 };
+              }
+              return item;
+            })
+          );
+        });
+    }
   };
 
-  const itemIncrease = productId => {
-    fetch(API, {
-      method: "PATCH",
-      headers: {
-        Authorization: accessToken,
-      },
-      body: JSON.stringify({
-        product_id: productId,
-        quantity: 1,
-      }),
-    }).then(res => res.json());
+  const handleSelectItem = productId => {
+    setCartItems(prev => {
+      return prev.map(item => {
+        if (productId === item.product_id) {
+          return { ...item, isSelected: !item.isSelected };
+        }
+        return item;
+      });
+    });
   };
 
-  const itemDecrease = productId => {
-    fetch(API, {
-      method: "PATCH",
-      headers: {
-        Authorization: accessToken,
-      },
-      body: JSON.stringify({
-        product_id: productId,
-        quantity: -1,
-      }),
-    }).then(res => res.json());
+  const handleSelectedItemAll = checked => {
+    if (checked === true) {
+      setCartItems(prev => prev.map(item => ({ ...item, isSelected: false })));
+    } else {
+      setCartItems(prev => prev.map(item => ({ ...item, isSelected: true })));
+    }
   };
 
   const itemDelete = productId => {
@@ -93,29 +149,16 @@ const Cart = () => {
     }).then(res => res.json());
   };
 
-  useEffect(() => {
-    fetch(API, {
-      headers: {
-        Authorization: accessToken,
-      },
-    })
-      .then(res => res.json())
-      .then(data => setCartItems(data.cart_list ?? []));
-  }, []);
-
   return (
     <div className="cart-wrap">
       <Link to="/">HOME</Link>
       <main className="cart">
         <CartList
           items={cartItems}
-          shopList={shopList}
           checkList={checkList}
-          onChangeAll={onChangeAll}
-          onChangeEach={onChangeEach}
-          itemDecrease={itemDecrease}
-          itemIncrease={itemIncrease}
-          setItemCount={setItemCount}
+          handleCount={handleCount}
+          handleSelectItem={handleSelectItem}
+          handleSelectedItemAll={handleSelectedItemAll}
           itemDelete={itemDelete}
         />
         <CartOrder orderList={orderList} />

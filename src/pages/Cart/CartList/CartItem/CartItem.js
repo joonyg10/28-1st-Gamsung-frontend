@@ -6,29 +6,27 @@ import { useState } from "react/cjs/react.development";
 
 const CartItem = ({
   id,
+  product_id: productId,
   name,
   price,
   serial,
   img,
   quantity,
-  checkList,
-  onChangeEach,
-  itemIncrease,
-  itemDecrease,
+  isSelected,
+  handleCount,
+  handleSelectItem,
   itemDelete,
-  setItemCount,
 }) => {
   const priceNum = price * quantity;
   const priceTrans = priceNum.toLocaleString("ko-KR");
-  const [count, setCount] = useState(quantity);
 
   return (
     <li className="cart-item">
       <label className="cart-item-checkbox">
         <input
           type="checkbox"
-          onChange={e => onChangeEach(e, id)}
-          checked={checkList.includes(id)}
+          checked={isSelected}
+          onChange={() => handleSelectItem(productId)}
         />
       </label>
       <img alt={name} src={img} className="cart-item-img" />
@@ -36,7 +34,10 @@ const CartItem = ({
       <span className="cart-item-serial">{serial}</span>
       <span className="cart-item-price">{priceTrans} 원</span>
       <div className="cart-count-button">
-        <button type="button" onClick={() => itemDecrease(id)}>
+        <button
+          type="button"
+          onClick={() => handleCount({ action: "decrease", productId: id })}
+        >
           <AiOutlineMinus />
         </button>
         <label>
@@ -44,14 +45,20 @@ const CartItem = ({
             type="number"
             min="1"
             max="100"
-            value={count}
-            onChange={e => setCount(e.target.value)}
-            onKeyPress={e => {
-              return e.key === "Enter" && setItemCount(id, count);
-            }}
+            value={quantity}
+            // onChange={e => setCount(e.target.value)}
+            // onKeyPress={e => {
+            //   return (
+            //     e.key === "Enter" &&
+            //     handleCount({ action: "modify", productId: id, count })
+            //   );
+            // }}
           />
         </label>
-        <button type="button" onClick={() => itemIncrease(id)}>
+        <button
+          type="button"
+          onClick={() => handleCount({ action: "increase", productId: id })}
+        >
           <AiOutlinePlus />
         </button>
       </div>

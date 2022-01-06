@@ -11,18 +11,18 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const getDetail = async () => {
-      await fetch(`http://10.58.0.35:8000/products/${serial_number}`, {
+      await fetch(`http://10.58.3.15:8000/products/${serial_number}`, {
         headers: {
           Authorization: localStorage.getItem("access-token"),
         },
       })
         .then(res => res.json())
-        .then(data => setProduct(data));
+        .then(data => setProduct(data.results[0]));
     };
     getDetail();
   }, []);
 
-  if (!product?.id) return <h1>Loading...</h1>;
+  if (!product?.name) return <h1>Loading...</h1>;
   return (
     <section className="product-detail">
       <ProductCarousel images={product?.detail_images} />

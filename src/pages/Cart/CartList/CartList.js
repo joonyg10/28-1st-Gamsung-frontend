@@ -10,6 +10,7 @@ const CartList = ({
   handleSelectedItemAll,
 }) => {
   const isSelectedAll = items.every(item => item.isSelected);
+  const isCheck = items.some(item => item.isSelected);
 
   return (
     <section className="cart-list">
@@ -28,8 +29,8 @@ const CartList = ({
         </label>
         <button
           type="button"
-          // className={`cart-list-delete ${isCheck ? "active" : ""}`}
-          // disabled={!isCheck}
+          className={`cart-list-delete ${isCheck ? "active" : ""}`}
+          disabled={!isCheck}
         >
           선택 삭제
         </button>

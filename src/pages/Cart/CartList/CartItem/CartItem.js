@@ -2,15 +2,14 @@ import React from "react";
 import { FiTrash2 } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import "./CartItem.scss";
-import { useState } from "react/cjs/react.development";
 
 const CartItem = ({
   id,
   product_id: productId,
-  name,
+  product_name: name,
   price,
-  serial,
-  img,
+  serial_number: serial,
+  main_url: img,
   quantity,
   isSelected,
   handleCount,
@@ -36,28 +35,20 @@ const CartItem = ({
       <div className="cart-count-button">
         <button
           type="button"
-          onClick={() => handleCount({ action: "decrease", productId: id })}
+          onClick={() =>
+            handleCount({ action: "decrease", productId: productId })
+          }
         >
           <AiOutlineMinus />
         </button>
         <label>
-          <input
-            type="number"
-            min="1"
-            max="100"
-            value={quantity}
-            // onChange={e => setCount(e.target.value)}
-            // onKeyPress={e => {
-            //   return (
-            //     e.key === "Enter" &&
-            //     handleCount({ action: "modify", productId: id, count })
-            //   );
-            // }}
-          />
+          <input type="number" min="1" max="100" value={quantity} />
         </label>
         <button
           type="button"
-          onClick={() => handleCount({ action: "increase", productId: id })}
+          onClick={() =>
+            handleCount({ action: "increase", productId: productId })
+          }
         >
           <AiOutlinePlus />
         </button>

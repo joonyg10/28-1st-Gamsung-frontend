@@ -6,9 +6,9 @@ import "./Cart.scss";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  // const [shopList, setShopList] = useState([]);
-  const [checkList, setCheckList] = useState([]);
-  const [orderList, setOrderList] = useState([]);
+
+  const API = "http://10.58.5.80:8000/carts";
+  const accessToken = localStorage.getItem("access_token");
 
   useEffect(() => {
     fetch(API, {
@@ -23,9 +23,6 @@ const Cart = () => {
         )
       );
   }, []);
-
-  const API = "http://10.58.3.232:8000/carts";
-  const accessToken = localStorage.getItem("access_token");
 
   const handleCount = ({ action, count, productId }) => {
     const actionType = {
@@ -61,14 +58,14 @@ const Cart = () => {
       })
         .then(res => res.json())
         .then(res => {
-          // setCartItems((prev, count) => {
-          //   return prev.map(item => {
-          //     if (item.product_id === productId) {
-          //       return { ...item, quantity: count };
-          //     }
-          //     return item;
-          //   });
-          // });
+          setCartItems((prev, count) => {
+            return prev.map(item => {
+              if (item.product_id === productId) {
+                return { ...item, quantity: count };
+              }
+              return item;
+            });
+          });
         });
     }
 
@@ -134,9 +131,9 @@ const Cart = () => {
 
   const handleSelectedItemAll = checked => {
     if (checked === true) {
-      setCartItems(prev => prev.map(item => ({ ...item, isSelected: false })));
-    } else {
       setCartItems(prev => prev.map(item => ({ ...item, isSelected: true })));
+    } else {
+      setCartItems(prev => prev.map(item => ({ ...item, isSelected: false })));
     }
   };
 
@@ -151,17 +148,16 @@ const Cart = () => {
 
   return (
     <div className="cart-wrap">
-      <Link to="/">HOME</Link>
+      <Link to="/gamsung">HOME</Link>
       <main className="cart">
         <CartList
           items={cartItems}
-          checkList={checkList}
           handleCount={handleCount}
           handleSelectItem={handleSelectItem}
           handleSelectedItemAll={handleSelectedItemAll}
           itemDelete={itemDelete}
         />
-        <CartOrder orderList={orderList} />
+        <CartOrder cartItems={cartItems} />
       </main>
       <div className="cart-customer-service">
         <h3>고객센터</h3>

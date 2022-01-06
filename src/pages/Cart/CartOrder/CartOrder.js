@@ -3,7 +3,8 @@ import CartOrderMenu from "./CartOrderMenu/CartOrderMenu";
 import CartOrderAddress from "./CartOrderAddress/CartOrderAddress";
 import "./CartOrder.scss";
 
-const CartOrder = ({ orderList }) => {
+const CartOrder = ({ cartItems }) => {
+  const orderList = cartItems.filter(item => item.isSelected === true);
   const isOrder = orderList.length !== 0;
 
   const orderCount = orderList.reduce((acc, cur) => {

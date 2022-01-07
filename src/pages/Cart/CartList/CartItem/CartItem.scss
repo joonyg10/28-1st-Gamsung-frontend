@@ -1,0 +1,103 @@
+$border-color: rgb(179, 179, 179);
+
+.cart-item {
+  position: relative;
+  display: flex;
+  height: 270px;
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  overflow: hidden;
+
+  &-checkbox {
+    margin: 10px 30px 0 0;
+  }
+
+  &-name {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 25%;
+    font-weight: bold;
+  }
+
+  &-serial {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    left: 25%;
+    color: $border-color;
+    font-size: 16px;
+  }
+
+  &-price {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-weight: bold;
+  }
+
+  &-img {
+    width: 150px;
+    height: 150px;
+    margin-top: 50px;
+    border-radius: 20px;
+  }
+
+  .cart-count-button {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 8%;
+    height: 30px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    text-align: center;
+
+    > label {
+      width: 50%;
+
+      input[type="number"] {
+        width: 100%;
+        border: none;
+        text-align: center;
+        font-size: 18px;
+        outline: none;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        appearance: none;
+      }
+    }
+
+    > button {
+      padding-top: 3px;
+      cursor: pointer;
+
+      > i {
+        font-size: 10px;
+      }
+    }
+
+    > :first-child {
+      width: 30%;
+      border-right: 1px solid $border-color;
+    }
+
+    > :last-child {
+      width: 30%;
+      border-left: 1px solid $border-color;
+    }
+  }
+
+  &-delete {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,40 @@
+@use "/src/styles/color" as color;
+
+.cart-order {
+  width: 25%;
+  margin-top: 135px;
+  border-top: 3px solid rgb(47, 47, 47);
+
+  &-total {
+    padding: 10px 0;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+  }
+
+  &-buyprice {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &-button {
+    width: 90%;
+    padding: 15px;
+    background-color: color.$color-primary;
+    border-radius: 40px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  > .active {
+    opacity: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(13, 83, 195);
+    }
+  }
+}

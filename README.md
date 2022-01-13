@@ -15,7 +15,7 @@
 - 이 사이트는 기본적인 프론트엔드 스킬 및 백엔드 스킬을 학습해볼 수 있어 선정함
 
 ### 데모 영상(이미지 클릭)
-![](https://drive.google.com/file/d/1sXzSnNrqCis-dJuwqMfAkRqHFQURISFY/view?usp=sharing) 
+https://drive.google.com/file/d/1sXzSnNrqCis-dJuwqMfAkRqHFQURISFY/view?usp=sharing
 
 <br>
 

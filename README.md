@@ -15,18 +15,24 @@
 - 이 사이트는 기본적인 프론트엔드 스킬 및 백엔드 스킬을 학습해볼 수 있어 선정함
 
 ### 데모 영상(이미지 클릭)
-
-*유투브 영상 링크나 캡쳐 이미지 넣어주세요.*
+![](https://drive.google.com/file/d/1sXzSnNrqCis-dJuwqMfAkRqHFQURISFY/view?usp=sharing) 
 
 <br>
 
-## 적용 기술 및 구현 기능
 
 ### 적용 기술
 
-> - Front-End : React.js, sass
-> - Back-End : Python, Django web framework, Bcrypt, My SQL
-> - Common : RESTful API, CRUD
+**_Front-end_**
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+
+**_Back-end_**
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
 
 
@@ -34,16 +40,27 @@
 
 #### 공통
 
-- 일반 회원가입 / 로그인
-- 상품 리스트
-- 상품 상세 페이지
-
-
+#### 일반 회원가입 / 로그인
+ 1) 입력한 정보에 대한 유효성 검사 기능 구현
+ 
 #### 메인페이지
+ 1) 최상단으 이미지 슬라이더 추가
+ 2) 서비스 카드 구현
+ 3) 상품 Preview에 대한 이미 탭 구현
+ 4) Story 구현
 
-- 상품 광고 슬라이드
-- 네비게이션 메뉴
-- 카드 및 기타 상품 소개
+#### 상품 리스트 
+ 1) 상품 정보 카드 구현 
+ 2) 옵션을 필터링 하여 특저 상품정보만 보이도록 하는 로직 구현
+
+
+#### 상품 상세 페이지
+ 1) 상품에 대한 이미지 슬라이더 구현 
+ 2) 상품에 대한 정보르 보여주는 부분 구현
+
+#### 장바구니 
+ 1) 장바구니에 담은 상품들에 대해 전체, 개별 선택 기능 구현
+ 2) 선택 변동 시 가격 / 수량 변동 기능 구현
 
 <br>
 
